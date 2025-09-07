@@ -18,6 +18,52 @@
         <div class="col-md-2">Se déconnecter</div>
     </div>
     <div class="row">
+
+<div id="cv" style="display:none; width: 800px; margin:auto; border:1px solid #000; padding:20px;">
+
+    <!-- Bouton PDF en haut -->
+    <div style="text-align:right; margin-bottom:10px;">
+        <button id="downloadCV" class="btn btn-primary">Télécharger PDF</button>
+    </div>
+
+    <!-- En-tête CV -->
+    <div style="text-align:center; margin-bottom:20px;">
+        <img id="cv-photo" src="" style="width:120px; height:120px; border-radius:50%; margin-bottom:10px;">
+        <h2 id="cv-nom"></h2>
+        <h3 id="cv-prenom"></h3>
+    </div>
+
+    <!-- Informations personnelles -->
+    <div style="margin-bottom:15px;">
+        <p><b>Sexe:</b> <span id="cv-sexe"></span></p>
+        <p><b>Date de naissance:</b> <span id="cv-dat"></span></p>
+        <p><b>Filière:</b> <span id="cv-filiere"></span></p>
+        <p><b>Niveau:</b> <span id="cv-niveau"></span></p>
+        <p><b>Année:</b> <span id="cv-annee"></span></p>
+    </div>
+
+    <!-- Sections compétences, expérience et formation -->
+    <div style="margin-bottom:10px;">
+        <h4>Compétences</h4>
+        <p id="cv-competences"></p>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <h4>Expérience</h4>
+        <p id="cv-experience"></p>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <h4>Formation</h4>
+        <p id="cv-formation"></p>
+    </div>
+
+</div>
+
+
+
+        <div class="col-md-6 mt-5"></div>
+
         <div class="col-ms-2">
             <div class="row border border-primary rounded">
                 <!-- voila la div qui garde les formulaires -->
@@ -69,21 +115,21 @@
                     </div>
 
 
-<!-- Exemple simple dans ton formulaire -->
-<div class="col-md-12">
-    <label for="competences" class="fw-bolder">Compétences</label>
-    <textarea id="competences" class="form-control mb-3 info"></textarea>
-</div>
+                    <!-- Exemple simple dans ton formulaire -->
+                    <div class="col-md-12">
+                        <label for="competences" class="fw-bolder">Compétences</label>
+                        <textarea id="competences" class="form-control mb-3 info"></textarea>
+                    </div>
 
-<div class="col-md-12">
-    <label for="experience" class="fw-bolder">Expérience</label>
-    <textarea id="experience" class="form-control mb-3 info"></textarea>
-</div>
+                    <div class="col-md-12">
+                        <label for="experience" class="fw-bolder">Expérience</label>
+                        <textarea id="experience" class="form-control mb-3 info"></textarea>
+                    </div>
 
-<div class="col-md-12">
-    <label for="formation" class="fw-bolder">Formation</label>
-    <textarea id="formation" class="form-control mb-3 info"></textarea>
-</div>
+                    <div class="col-md-12">
+                        <label for="formation" class="fw-bolder">Formation</label>
+                        <textarea id="formation" class="form-control mb-3 info"></textarea>
+                    </div>
 
 
 
@@ -107,36 +153,6 @@
                     </button>
                 </div>
             </div>
-
-            
-
-            <div class="col-md-6 mt-5"></div>
-
-            <div id="cv" style="display:none; width: 800px; margin:auto; border:1px solid #000; padding:20px;">
-                <button id="downloadCV" class="btn btn-primary mt-3">Télécharger PDF</button>
-    
-                <div style="text-align:center;">
-                    <img id="cv-photo" src="" style="width:120px; height:120px; border-radius:50%;">
-                    <h2 id="cv-nom"></h2>
-                    <h3 id="cv-prenom"></h3>
-                </div>
-                <p><b>Sexe:</b> <span id="cv-sexe"></span></p>
-                <p><b>Date de naissance:</b> <span id="cv-dat"></span></p>
-                <p><b>Filière:</b> <span id="cv-filiere"></span></p>
-                <p><b>Niveau:</b> <span id="cv-niveau"></span></p>
-                <p><b>Année:</b> <span id="cv-annee"></span></p>
-
-                <h4>Compétences</h4>
-                <p id="cv-competences"></p>
-
-                <h4>Expérience</h4>
-                <p id="cv-experience"></p>
-
-                <h4>Formation</h4>
-                <p id="cv-formation"></p>
-
-            </div>
-
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
