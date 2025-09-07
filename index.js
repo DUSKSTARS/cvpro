@@ -74,12 +74,14 @@ $(document).ready(function () {
             const doc = new jsPDF('p', 'mm', 'a4'); // Portrait, mm, A4
             let y = 10; // position verticale initiale
 
+            // format carre de l'image
             // Photo
             let img = $("#cv-photo")[0];
             if(img.src){
                 doc.addImage(img, 'PNG', 80, y, 50, 50);
                 y += 60;
             }
+            
 
             // Nom et prénom
             doc.setFontSize(16);
@@ -121,11 +123,31 @@ $(document).ready(function () {
                 });
             }
 
+            // ... ton code actuel jusqu'à la génération des paragraphes
+
             ajouterParagraphe("Compétences", $("#cv-competences").text());
             ajouterParagraphe("Expérience", $("#cv-experience").text());
             ajouterParagraphe("Formation", $("#cv-formation").text());
 
+            // Ajouter la certification et la date en bas à droite
+            let pageHeight = doc.internal.pageSize.getHeight();
+            let pageWidth = doc.internal.pageSize.getWidth();
+            let margeDroite = 20;
+
+            // Texte à ajouter
+            let texteCertif = "Je certifie exactes les informations ci-dessus";
+            let texteDate = "Ce CV est complété le " + new Date().toLocaleDateString();
+
+            // Position verticale : un peu au-dessus du bas
+            let yPosition = pageHeight - 20;
+
+            // Ajouter le texte à droite
+            doc.setFontSize(12);
+            doc.text(texteCertif, pageWidth - margeDroite, yPosition, { align: "right" });
+            doc.text(texteDate, pageWidth - margeDroite, yPosition + 7, { align: "right" });
+
             doc.save("CV_" + $("#cv-nom").text() + "_" + $("#cv-prenom").text() + ".pdf");
+
         });
 
     });
