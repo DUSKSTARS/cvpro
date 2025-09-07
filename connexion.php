@@ -1,5 +1,5 @@
 <?php
-    $db = new PDO("mysql:host=localhost;dbname=etustage", "root","");
+    $db = new PDO("mysql:host=localhost;dbname=cvpro", "root","");
 
     
 function gRM($length = 8) {
@@ -16,19 +16,28 @@ function gRM($length = 8) {
 
 $uploadDirectory = "image/";
 $photoPath = $uploadDirectory . basename($_FILES["photo"]["name"]);
-    $tab=[
-        gRM(),
-        $_POST["filiere"],
-        $_POST["niveau"],
-        $_POST["nom"],
-        $_POST["prenom"],
-        $_POST["sexe"],
-        $_POST["dat"],
-        $_POST["annee"],
-        $photoPath,
-    ];
-        
-    $inser = "INSERT INTO stage(mat, filiere, niveau, nom, prenom, sexe, dat, annee, photo) VALUES (?,?,?,?,?,?,?,?,?)";
+
+// Nouveau tableau avec les champs supplémentaires
+$tab = [
+    gRM(),
+    $_POST["filiere"],
+    $_POST["niveau"],
+    $_POST["nom"],
+    $_POST["prenom"],
+    $_POST["sexe"],
+    $_POST["dat"],
+    $_POST["annee"],
+    $photoPath,
+    $_POST["competences"],   // nouveau champ
+    $_POST["experience"],    // nouveau champ
+    $_POST["formation"]      // nouveau champ
+];
+
+    
+    $inser = "INSERT INTO stages(
+    mat, filiere, niveau, nom, prenom, sexe, dat, annee, photo, competences, experience, formation
+) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
     $rid = $db->prepare($inser);
     
 
