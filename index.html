@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fachtoch</title>
+    <script src="bootstrap-5.2.3-dist\js\bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-5.2.3-dist\css\bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="p-3">
+    <div class="row rounded bg-primary">
+        <div class="col-md-10">GESTION DE NOTES</div>
+        <div class="col-md-2">Se déconnecter</div>
+    </div>
+    <div class="row">
+        <div class="col-ms-2">
+            <div class="row border border-primary rounded">
+                <!-- voila la div qui garde les formulaires -->
+                <div class="row col-md-9 mt-3">
+                    <div class="col-md-5">
+                        <label for="nom" class="fw-bolder">Nom</label>
+                        <input type="text" class="form-control mb-3 info" id="nom">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="prenom" class="fw-bolder">Prénom</label>
+                        <input type="text" class="form-control mb-3 info" id="prenom">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="sexe" class="fw-bolder">votre choix</label>
+                        <select name="sexe" id="sexe" class="form-control mb-3 info">
+                            <option value="1" id="sex" class="form-control mb-3 info">masculin</option>
+                            <option value="2" id="sex" class="form-control mb-3 info">feminin</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label for="dat" class="fw-bolder">date de naissance</label>
+                        <input type="date" class="form-control mb-3 info" id="dat">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="filiere" class="fw-bolder">filiere</label>
+                        <select name="filiere" id="filiere" class="form-control mb-3 info">
+                            <option value="1" id="filier">informatique</option>
+                            <option value="2" id="filier">secretariat</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="niveau" class="fw-bolder">niveau</label>
+                        <select name="niveau" id="niveau" class="form-control mb-3 info">
+                            <option value="1" id="nivea">L1</option>
+                            <option value="2" id="nivea">L2</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="annee" class="fw-bolder">annee universitaire</label>
+                        <select name="annee" id="annee" class="form-control mb-3 info">
+                            <option value="1" id="anne">1</option>
+                            <option value="2" id="anne">2</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-8">
+                        <label for="photo" class="fw-bolder">photo</label>
+                        <input type="file" class="form-control mb-3 " id="photo" name="photo">
+                    </div>
+                    <div class="error"></div>
+                </div>
+
+                <!-- voila la partir de l'image avec row col-md-3 l'image va a droite -->
+                <div class="row col-md-3 ms-4 border border-primary">
+                    <img src="benin.png" alt="source" id="img" class="photo form-control">
+                </div>
+    
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <button id="valider" type="button" class="border border-primary rounded mt-2 p-2">Ajouter
+                    </button>
+                </div>
+            </div>
+            <p>
+                Votre Nom : <span class="nom fw-bolder"></span>
+            </p>
+
+            
+
+            <div class="col-md-6 mt-5"></div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped ">
+                    <thead>
+                        <td>#</td>
+                        <td>Matricules</td>
+                        <td>Filieres</td>
+                        <td>Niveau</td>
+                        <td>Noms</td>
+                        <td>Prenom</td>
+                        <td>Sexe</td>
+                        <td>Date de naissance</td>
+                        <td>annee</td>
+                        <td>Photo</td>
+                        <td>option</td>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            
+        <!-- <dialog>
+                <label for="">enter name</label>
+                <input type="text" id="mot">
+                <button id="valid" type="button">formulaire</button>
+        </dialog> -->
+    </div>
+    <script src="index.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
+</body>
+</html>
