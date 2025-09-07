@@ -245,6 +245,7 @@ $(document).ready(function () {
         }
 
         doc.setFontSize(16);
+        doc.text("Curriculum Vitea"); y+=45
         doc.text("Nom: " + $("#cv-nom").text(), 20, y); y+=10;
         doc.text("Prénom: " + $("#cv-prenom").text(), 20, y); y+=10;
 
