@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fachtoch</title>
@@ -21,19 +21,19 @@
 
 <div id="cv" style="display:none; width: 800px; margin:auto; border:1px solid #000; padding:20px;">
 
-    <!-- Bouton PDF en haut -->
+    Bouton PDF en haut
     <div style="text-align:right; margin-bottom:10px;">
         <button id="downloadCV" class="btn btn-primary">Télécharger PDF</button>
     </div>
 
-    <!-- En-tête CV -->
+    En-tête CV
     <div style="text-align:center; margin-bottom:20px;">
         <img id="cv-photo" src="" style="width:120px; height:120px; border-radius:50%; margin-bottom:10px;">
         <h2 id="cv-nom"></h2>
         <h3 id="cv-prenom"></h3>
     </div>
 
-    <!-- Informations personnelles -->
+    Informations personnelles
     <div style="margin-bottom:15px;">
         <p><b>Sexe:</b> <span id="cv-sexe"></span></p>
         <p><b>Date de naissance:</b> <span id="cv-dat"></span></p>
@@ -42,7 +42,7 @@
         <p><b>Année:</b> <span id="cv-annee"></span></p>
     </div>
 
-    <!-- Sections compétences, expérience et formation -->
+    Sections compétences, expérience et formation
     <div style="margin-bottom:10px;">
         <h4>Compétences</h4>
         <p id="cv-competences"></p>
@@ -66,7 +66,7 @@
 
         <div class="col-ms-2">
             <div class="row border border-primary rounded">
-                <!-- voila la div qui garde les formulaires -->
+                voila la div qui garde les formulaires
                 <div class="row col-md-9 mt-3">
                     <div class="col-md-5">
                         <label for="nom" class="fw-bolder">Nom</label>
@@ -115,7 +115,7 @@
                     </div>
 
 
-                    <!-- Exemple simple dans ton formulaire -->
+                    Exemple simple dans ton formulaire
                     <div class="col-md-12">
                         <label for="competences" class="fw-bolder">Compétences</label>
                         <textarea id="competences" class="form-control mb-3 info"></textarea>
@@ -140,7 +140,7 @@
                     <div class="error"></div>
                 </div>
 
-                <!-- voila la partir de l'image avec row col-md-3 l'image va a droite -->
+                voila la partir de l'image avec row col-md-3 l'image va a droite
                 <div class="row col-md-3 ms-4 border border-primary">
                     <img src="benin.png" alt="source" id="img" class="photo form-control">
                 </div>
@@ -164,5 +164,180 @@
     <script>
         let table = new DataTable('#myTable');
     </script>
+</body> -->
+<!-- </html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de CV</title>
+    <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="p-3">
+
+    <!-- En-tête -->
+    <div class="row rounded bg-primary text-white p-2">
+        <div class="col-md-10">GESTION DE NOTES</div>
+        <div class="col-md-2 text-end">Se déconnecter</div>
+    </div>
+
+    <div class="row mt-4">
+
+        <!-- Formulaire -->
+        <div class="col-md-6">
+            <div class="border border-primary rounded p-3">
+                <div class="mb-3">
+                    <label for="nom" class="fw-bolder">Nom</label>
+                    <input type="text" class="form-control" id="nom">
+                </div>
+                <div class="mb-3">
+                    <label for="prenom" class="fw-bolder">Prénom</label>
+                    <input type="text" class="form-control" id="prenom">
+                </div>
+                <div class="mb-3">
+                    <label for="sexe" class="fw-bolder">Sexe</label>
+                    <select id="sexe" class="form-control">
+                        <option value="1">Masculin</option>
+                        <option value="2">Féminin</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="dat" class="fw-bolder">Date de naissance</label>
+                    <input type="date" class="form-control" id="dat">
+                </div>
+                <div class="mb-3">
+                    <label for="filiere" class="fw-bolder">Filière</label>
+                    <select id="filiere" class="form-control">
+                        <option value="informatique">Informatique</option>
+                        <option value="secretariat">Secrétariat</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="niveau" class="fw-bolder">Niveau</label>
+                    <select id="niveau" class="form-control">
+                        <option value="L1">L1</option>
+                        <option value="L2">L2</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="annee" class="fw-bolder">Année universitaire</label>
+                    <select id="annee" class="form-control">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="competences" class="fw-bolder">Compétences</label>
+                    <textarea id="competences" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="experience" class="fw-bolder">Expérience</label>
+                    <textarea id="experience" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="formation" class="fw-bolder">Formation</label>
+                    <textarea id="formation" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="photo" class="fw-bolder">Photo</label>
+                    <input type="file" class="form-control" id="photo">
+                </div>
+                <button id="valider" class="btn btn-primary mt-2">Ajouter</button>
+            </div>
+        </div>
+
+        <!-- Aperçu CV -->
+        <div class="col-md-6">
+            <div id="cv" style="display:none; border:1px solid #000; padding:20px;">
+                
+                <!-- Bouton PDF -->
+                <div class="text-end mb-2">
+                    <button id="downloadCV" class="btn btn-success">Télécharger PDF</button>
+                </div>
+
+                <div class="text-center mb-3">
+                    <img id="cv-photo" src="" style="width:120px;height:120px;border-radius:50%;margin-bottom:10px;">
+                    <h2 id="cv-nom"></h2>
+                    <h3 id="cv-prenom"></h3>
+                </div>
+
+                <p><b>Sexe:</b> <span id="cv-sexe"></span></p>
+                <p><b>Date de naissance:</b> <span id="cv-dat"></span></p>
+                <p><b>Filière:</b> <span id="cv-filiere"></span></p>
+                <p><b>Niveau:</b> <span id="cv-niveau"></span></p>
+                <p><b>Année:</b> <span id="cv-annee"></span></p>
+
+                <h4>Compétences</h4>
+                <p id="cv-competences"></p>
+
+                <h4>Expérience</h4>
+                <p id="cv-experience"></p>
+
+                <h4>Formation</h4>
+                <p id="cv-formation"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="index.js"></script>
+
 </body>
 </html>
