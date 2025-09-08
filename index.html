@@ -230,9 +230,36 @@
 
     <!-- En-tête -->
     <div class="row rounded bg-primary text-white p-2">
-        <div class="col-md-10">CREATION DE CV</div>
+        <div class="col-md-3"></div>
+        <div class="col-md-7">CREATION DE CV</div>
+        <div class="col-md-2 btn btn-success" data-bs-toggle="modal" data-bs-target="#imageModal">
+            Voir modèle
+        </div>
     </div>
-
+    <!-- Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="imageModalLabel">Modèles</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <div class="col-md-6">
+                <img src="image1.jpg" alt="Image 1" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <img src="image2.jpg" alt="Image 2" class="img-fluid rounded">
+            </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+        </div>
+    </div>
+    </div>
     <div class="row mt-4">
 
         <!-- Formulaire -->
@@ -304,7 +331,10 @@
                 
                 <!-- Bouton PDF -->
                 <div class="text-end mb-2">
-                    <button id="downloadCV" class="btn btn-success">Télécharger PDF</button>
+                    <button id="downloadCV" class="btn btn-success">Model1 PDF</button>
+                </div>
+                <div class="text-end mb-2">
+                    <button id="downloadCV2" class="btn btn-success">Model2 PDF</button>
                 </div>
 
                 <div class="text-center mb-3">
@@ -335,6 +365,7 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="index.js"></script>
 
