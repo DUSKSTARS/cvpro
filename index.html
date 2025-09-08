@@ -238,27 +238,27 @@
     </div>
     <!-- Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="imageModalLabel">Modèles</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-            <div class="col-md-6">
-                <img src="image1.jpg" alt="Image 1" class="img-fluid rounded">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Modèles</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
             </div>
-            <div class="col-md-6">
-                <img src="image2.jpg" alt="Image 2" class="img-fluid rounded">
+            <div class="modal-body">
+                <div class="row">
+                <div class="col-md-6">
+                    <img src="image1.jpg" alt="Image 1" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <img src="image2.jpg" alt="Image 2" class="img-fluid rounded">
+                </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
             </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-        </div>
-        </div>
-    </div>
     </div>
     <div class="row mt-4">
 
@@ -274,35 +274,32 @@
                     <input type="text" class="form-control" id="prenom">
                 </div>
                 <div class="mb-3">
-                    <label for="sexe" class="fw-bolder">Sexe</label>
-                    <select id="sexe" class="form-control">
-                        <option value="1">Masculin</option>
-                        <option value="2">Féminin</option>
-                    </select>
+                    <label for="profession" class="fw-bolder">Profession</label>
+                    <input type="text" class="form-control" id="profession">
                 </div>
                 <div class="mb-3">
-                    <label for="dat" class="fw-bolder">Date de naissance</label>
-                    <input type="date" class="form-control" id="dat">
+                    <label for="mail" class="fw-bolder">E-mail</label>
+                    <input type="email" class="form-control" id="mail">
                 </div>
                 <div class="mb-3">
-                    <label for="filiere" class="fw-bolder">Filière</label>
-                    <select id="filiere" class="form-control">
-                        <option value="informatique">Informatique</option>
-                        <option value="secretariat">Secrétariat</option>
-                    </select>
+                    <label for="filiere" class="fw-bolder">Localisation</label>
+                    <input type="text" class="form-control" id="filiere">
                 </div>
                 <div class="mb-3">
-                    <label for="niveau" class="fw-bolder">Niveau</label>
-                    <select id="niveau" class="form-control">
-                        <option value="L1">L1</option>
-                        <option value="L2">L2</option>
-                    </select>
+                    <label for="niveau" class="fw-bolder">Contact</label>
+                    <input type="text" class="form-control" id="niveau">
                 </div>
                 <div class="mb-3">
-                    <label for="annee" class="fw-bolder">Année universitaire</label>
+                    <label for="annee" class="fw-bolder">Langues</label>
                     <select id="annee" class="form-control">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="1">Français, Fon, Mina, Yoruba</option>
+                        <option value="2">Français, Anglais, Fon, Mina, Yoruba</option>
+                        <option value="3">Français, Fon, Mina</option>
+                        <option value="4">Français, Anglais, Fon, Mina</option>
+                        <option value="5">Français, Fon</option>
+                        <option value="6">Français, Anglais, Fon</option>
+                        <option value="7">Français, Mahi, Fon</option>
+                        <option value="8">Français, Anglais, Mahi, Fon</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -343,11 +340,11 @@
                     <h3 id="cv-prenom"></h3>
                 </div>
 
-                <p><b>Sexe:</b> <span id="cv-sexe"></span></p>
-                <p><b>Date de naissance:</b> <span id="cv-dat"></span></p>
-                <p><b>Filière:</b> <span id="cv-filiere"></span></p>
-                <p><b>Niveau:</b> <span id="cv-niveau"></span></p>
-                <p><b>Année:</b> <span id="cv-annee"></span></p>
+                <p><b>Profession:</b> <span id="cv-profession"></span></p>
+                <p><b>E-mail:</b> <span id="cv-mail"></span></p>
+                <p><b>Localisation:</b> <span id="cv-filiere"></span></p>
+                <p><b>Contact:</b> <span id="cv-niveau"></span></p>
+                <p><b>Langues:</b> <span id="cv-annee"></span></p>
 
                 <h4>Compétences</h4>
                 <p id="cv-competences"></p>
