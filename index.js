@@ -233,57 +233,150 @@ $(document).ready(function () {
     });
 
     // Générer PDF
-    $("#downloadCV").click(function(){
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF('p', 'mm', 'a4');
-        let y = 10;
+    // $("#downloadCV").click(function(){
+    //     const { jsPDF } = window.jspdf;
+    //     const doc = new jsPDF('p', 'mm', 'a4');
+    //     let y = 10;
 
-        let img = $("#cv-photo")[0];
-        if(img.src) {
-            doc.addImage(img, 'PNG', 80, y, 50, 50);
-            y += 60;
-        }
+    //     let img = $("#cv-photo")[0];
+    //     if(img.src) {
+    //         doc.addImage(img, 'PNG', 80, y, 50, 50);
+    //         y += 60;
+    //     }
 
-        doc.setFontSize(16);
-        doc.text("Nom: " + $("#cv-nom").text(), 20, y); y+=10;
-        doc.text("Prénom: " + $("#cv-prenom").text(), 20, y); y+=10;
+    //     doc.setFontSize(16);
+    //     doc.text("Nom: " + $("#cv-nom").text(), 20, y); y+=10;
+    //     doc.text("Prénom: " + $("#cv-prenom").text(), 20, y); y+=10;
 
-        doc.setFontSize(12);
-        let infos = [
-            "Sexe: " + $("#cv-sexe").text(),
-            "Date de naissance: " + $("#cv-dat").text(),
-            "Filière: " + $("#cv-filiere").text(),
-            "Niveau: " + $("#cv-niveau").text(),
-            "Année: " + $("#cv-annee").text()
-        ];
-        infos.forEach(info => { doc.text(info, 20, y); y+=10; });
+    //     doc.setFontSize(12);
+    //     let infos = [
+    //         "Sexe: " + $("#cv-sexe").text(),
+    //         "Date de naissance: " + $("#cv-dat").text(),
+    //         "Filière: " + $("#cv-filiere").text(),
+    //         "Niveau: " + $("#cv-niveau").text(),
+    //         "Année: " + $("#cv-annee").text()
+    //     ];
+    //     infos.forEach(info => { doc.text(info, 20, y); y+=10; });
 
-        function ajouterParagraphe(titre, texte){
-            y += 5;
-            doc.setFontSize(14);
-            doc.text(titre, 20, y);
-            y += 7;
-            doc.setFontSize(12);
-            let lignes = doc.splitTextToSize(texte, 170);
-            lignes.forEach(line => {
-                if(y > 280){ doc.addPage(); y = 10; }
-                doc.text(line, 20, y); y+=7;
-            });
-        }
+    //     function ajouterParagraphe(titre, texte){
+    //         y += 5;
+    //         doc.setFontSize(14);
+    //         doc.text(titre, 20, y);
+    //         y += 7;
+    //         doc.setFontSize(12);
+    //         let lignes = doc.splitTextToSize(texte, 170);
+    //         lignes.forEach(line => {
+    //             if(y > 280){ doc.addPage(); y = 10; }
+    //             doc.text(line, 20, y); y+=7;
+    //         });
+    //     }
 
-        ajouterParagraphe("Compétences", $("#cv-competences").text());
-        ajouterParagraphe("Expérience", $("#cv-experience").text());
-        ajouterParagraphe("Formation", $("#cv-formation").text());
+    //     ajouterParagraphe("Compétences", $("#cv-competences").text());
+    //     ajouterParagraphe("Expérience", $("#cv-experience").text());
+    //     ajouterParagraphe("Formation", $("#cv-formation").text());
 
-        let pageHeight = doc.internal.pageSize.getHeight();
-        let pageWidth = doc.internal.pageSize.getWidth();
-        let margeDroite = 20;
-        let texteCertif = "Je certifie exactes les informations ci-dessus";
-        let texteDate = "Ce CV est complété le " + new Date().toLocaleDateString();
+    //     let pageHeight = doc.internal.pageSize.getHeight();
+    //     let pageWidth = doc.internal.pageSize.getWidth();
+    //     let margeDroite = 20;
+    //     let texteCertif = "Je certifie exactes les informations ci-dessus";
+    //     let texteDate = "Ce CV est complété le " + new Date().toLocaleDateString();
 
-        doc.text(texteCertif, pageWidth - margeDroite, pageHeight - 20, { align: "right" });
-        doc.text(texteDate, pageWidth - margeDroite, pageHeight - 13, { align: "right" });
+    //     doc.text(texteCertif, pageWidth - margeDroite, pageHeight - 20, { align: "right" });
+    //     doc.text(texteDate, pageWidth - margeDroite, pageHeight - 13, { align: "right" });
 
-        doc.save("CV_" + $("#cv-nom").text() + "_" + $("#cv-prenom").text() + ".pdf");
+    //     doc.save("CV_" + $("#cv-nom").text() + "_" + $("#cv-prenom").text() + ".pdf");
+    // });
+
+
+
+$("#downloadCV").click(function(){
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    let y = 60; // on descend un peu pour ne pas coller à la photo
+
+    // ===== HEADER =====
+    doc.setFillColor(52, 152, 219);
+    doc.rect(0, 0, pageWidth, 35, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(20);
+    doc.setFont(undefined, 'bold');
+    doc.text($("#cv-nom").text() + " " + $("#cv-prenom").text(), 20, 22);
+
+    // ===== PHOTO =====
+    let img = $("#cv-photo")[0];
+    if(img.src){
+        doc.addImage(img, 'PNG', pageWidth - 60, 5, 50, 50);
+    }
+
+    // ===== INFOS =====
+    doc.setTextColor(0,0,0);
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'normal');
+    const infos = [
+        "Sexe: " + $("#cv-sexe").text(),
+        "Date de naissance: " + $("#cv-dat").text(),
+        "Filière: " + $("#cv-filiere").text(),
+        "Niveau: " + $("#cv-niveau").text(),
+        "Année: " + $("#cv-annee").text()
+    ];
+    doc.setFillColor(245,245,245);
+    doc.rect(15, y-5, pageWidth-30, infos.length*7+5, 'F');
+    infos.forEach((info, index)=>{
+        doc.text(info, 20, y + index*7);
     });
+    y += infos.length*7 + 20;
+
+    // ===== Fonction pour ajouter une section =====
+    function ajouterSection(titre, texte){
+        // Bloc titre
+        doc.setFillColor(52, 152, 219);
+        doc.setTextColor(255,255,255);
+        doc.setFontSize(14);
+        doc.setFont(undefined, 'bold');
+        doc.rect(15, y-5, pageWidth-30, 8, 'F');
+        doc.text(titre, 20, y);
+        y += 10;
+
+        // Contenu formaté en liste
+        doc.setTextColor(0,0,0);
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'normal');
+
+        // Séparer par retour à la ligne
+        let lignesBrutes = texte.split(/\n|-/g); // coupe sur \n ou "-"
+        lignesBrutes.forEach(ligne=>{
+            let propre = ligne.trim();
+            if(propre.length > 0){
+                if(y > 280){ doc.addPage(); y = 20; }
+                doc.text("• " + propre, 25, y);
+                y += 7;
+            }
+        });
+        y += 5;
+    }
+
+    // ===== Sections =====
+    ajouterSection("Compétences", $("#cv-competences").text());
+    ajouterSection("Expérience", $("#cv-experience").text());
+    ajouterSection("Formation", $("#cv-formation").text());
+
+    // ===== Bas de page =====
+    let texteCertif = "Je certifie exactes les informations ci-dessus";
+    let texteDate = "Ce CV est complété le " + new Date().toLocaleDateString();
+    doc.setFontSize(12);
+    doc.text(texteCertif, pageWidth - 20, pageHeight - 20, { align: "right" });
+    doc.text(texteDate, pageWidth - 20, pageHeight - 13, { align: "right" });
+
+    // ===== Sauvegarde =====
+    doc.save("CV_" + $("#cv-nom").text() + "_" + $("#cv-prenom").text() + ".pdf");
+});
+
+
+
+
+
+
+
 });
