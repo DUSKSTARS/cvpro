@@ -232,16 +232,40 @@ $(document).ready(function () {
 
 
     // Aperçu photo en direct
+    // $("#photo").change(function(){
+    //     let file = this.files[0];
+    //     if(file){
+    //         let reader = new FileReader();
+    //         reader.onload = function(e){
+    //             $("#cv-photo").attr("src", e.target.result);
+    //         }
+    //         reader.readAsDataURL(file);
+    //     }
+    // });
+    
+    // Aperçu photo en direct avec contrôle carré
     $("#photo").change(function(){
         let file = this.files[0];
         if(file){
-            let reader = new FileReader();
-            reader.onload = function(e){
-                $("#cv-photo").attr("src", e.target.result);
-            }
-            reader.readAsDataURL(file);
+            let img = new Image();
+            img.onload = function() {
+                if (this.width !== this.height) {
+                    alert("⚠️ L'image doit être carrée (largeur = hauteur).");
+                    $("#photo").val("");   // reset input
+                    $("#cv-photo").attr("src", ""); // reset aperçu
+                } else {
+                    // si carré, on affiche l'aperçu
+                    let reader = new FileReader();
+                    reader.onload = function(e){
+                        $("#cv-photo").attr("src", e.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            };
+            img.src = URL.createObjectURL(file);
         }
     });
+
 
     // Remplir CV
     $("#valider").click(function(){
