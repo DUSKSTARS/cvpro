@@ -204,6 +204,33 @@
 
 $(document).ready(function () {
 
+
+    // Fonction pour ajouter un tiret automatique dans textarea
+    function activerListeAuto(selector) {
+        $(selector).on("keydown", function(e) {
+            if (e.key === "Enter") {
+                e.preventDefault(); // empêche le saut de ligne normal
+                let cursorPos = this.selectionStart;
+                let value = $(this).val();
+                let before = value.substring(0, cursorPos);
+                let after = value.substring(cursorPos);
+
+                // insère un retour à la ligne + tiret
+                $(this).val(before + "\n- " + after);
+
+                // repositionne le curseur après le "- "
+                this.selectionStart = this.selectionEnd = cursorPos + 3;
+            }
+        });
+    }
+
+    // Activer sur tes champs
+    activerListeAuto("#competences");
+    activerListeAuto("#experience");
+    activerListeAuto("#formation");
+
+
+
     // Aperçu photo en direct
     $("#photo").change(function(){
         let file = this.files[0];
