@@ -457,5 +457,11 @@ $(document).ready(function () {
         // ===== SAVE =====
         doc.save("CV_" + $("#cv-nom").text() + "_" + $("#cv-prenom").text() + ".pdf");
     });
+
+    // Incrémente et récupère le compteur
+    $.get("https://api.countapi.xyz/hit/ton-domaine.com/visites", function(data){
+        let total = data.value;
+        $("#statistiques").html("Nombre total de visites : " + total);
+    });
 });
 
